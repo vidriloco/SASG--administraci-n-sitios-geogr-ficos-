@@ -1,0 +1,24 @@
+<p class="notice"><%= notice %></p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @linea.nombre %>
+</p>
+
+<p>
+  <b>Transporte:</b>
+  <%= @linea.transporte.nil? ? 'Sin transporte' : @linea.transporte.nombre %>
+</p>
+
+<p>
+  <b>Identificador:</b>
+  <%= @linea.identificador %>
+</p>
+
+<p>
+  <b>Color:</b>
+  <%= @linea.color %>
+</p>
+
+<%= button_to 'Modificar', edit_linea_path(@linea), :method => :get %> |
+<%= button_to 'Atrás', lineas_path, :method => :get %>

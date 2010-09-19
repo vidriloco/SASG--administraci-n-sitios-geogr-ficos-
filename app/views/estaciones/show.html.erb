@@ -1,0 +1,35 @@
+<p class="notice"><%= notice %></p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @estacion.nombre %>
+</p>
+
+<p>
+  <b>Coordenada:</b>
+  <%= @estacion.coordenada_to_s %>
+</p>
+
+<p>
+  <b>Linea:</b>
+  <%= @estacion.linea.nombre %>
+</p>
+
+<p>
+  <b>Posición:</b>
+  <%= @estacion.posicion %>
+</p>
+
+<p>
+  <b>Correspondencia:</b>
+  <%= @estacion.correspondencia.nil? ? 'Sin correspondencia todavía' : @estacion.correspondencia.clave %>
+</p>
+
+<p>
+  <b>Delegacion:</b>
+  <%= @estacion.delegacion %>
+</p>
+
+
+<%= button_to 'Modificar', edit_estacion_path(@estacion), :method => :get %>
+<%= button_to 'Atrás', estaciones_path, :method => :get %>

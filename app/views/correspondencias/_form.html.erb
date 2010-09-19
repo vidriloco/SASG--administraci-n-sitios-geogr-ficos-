@@ -1,0 +1,20 @@
+<%= form_for(@correspondencia) do |f| %>
+  <% if @correspondencia.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@correspondencia.errors.count, "error") %> impidieron guardar ésta correspondencia:</h2>
+    <ul>
+    <% @correspondencia.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :clave %><br />
+    <%= f.text_field :clave %>
+  </div>
+  <div class="actions">
+    <%= f.submit("Guarda Correspondencia") %>
+  </div>
+<% end %>

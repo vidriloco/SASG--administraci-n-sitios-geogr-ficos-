@@ -1,0 +1,53 @@
+<%= form_for(@sitio) do |f| %>
+  <% if @sitio.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@sitio.errors.count, "error") %> prohibited this sitio from being saved:</h2>
+    <ul>
+    <% @sitio.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label 'Categoria' %><br />
+    <%= f.select :categoria_id, options_from_collection_for_select(@categorias, 'id', 'nombre', '1') %>
+  </div>
+  <div class="field">
+    <%= f.label :descripcion %><br />
+    <%= f.text_area :descripcion %>
+  </div>
+	<div class="field">
+		<%= f.label 'Coordenada (Latitud - Longitud)' %><br />
+		<%= text_field_tag 'sitio[coordenada][lat]',  @sitio.coordenada.nil?  ? '' : @sitio.coordenada.lat %>
+		<%= text_field_tag 'sitio[coordenada][lon]',  @sitio.coordenada.nil?  ? '' : @sitio.coordenada.lon %>
+	</div>
+  <div class="field">
+    <%= f.label :direccion %><br />
+    <%= f.text_field :direccion %>
+  </div>
+  <div class="field">
+    <%= f.label :telefono %><br />
+    <%= f.text_field :telefono %>
+  </div>
+  <div class="field">
+    <%= f.label :sitioweb %><br />
+    <%= f.text_field :sitioweb %>
+  </div>
+  <div class="field">
+    <%= f.label :correo %><br />
+    <%= f.text_field :correo %>
+  </div>
+  <div class="field">
+    <%= f.label :lucrativo %><br />
+    <%= f.check_box :lucrativo %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

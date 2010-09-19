@@ -1,0 +1,20 @@
+<%= form_for(@categoria) do |f| %>
+  <% if @categoria.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@categoria.errors.count, "error") %> impidio que éste registro se guardara correctamente:</h2>
+    <ul>
+    <% @categoria.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

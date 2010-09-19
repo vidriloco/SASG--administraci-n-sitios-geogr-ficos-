@@ -1,0 +1,32 @@
+<%= form_for(@imagen, :html => {:multipart => true}) do |f| %>
+  <% if @imagen.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@imagen.errors.count, "error") %> impidió que se guardara correctamente ésta imagen:</h2>
+    <ul>
+    <% @imagen.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :archivo %><br />
+    <%= f.file_field :archivo %>
+  </div>
+  <div class="field">
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :descripcion %><br />
+    <%= f.text_area :descripcion %>
+  </div>
+  <div class="field">
+    <%= f.label :sitio_id %><br />
+    <%= f.select :sitio_id, option_groups_from_collection_for_select(@categorias, :sitios, :nombre, :id,:nombre, 0) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

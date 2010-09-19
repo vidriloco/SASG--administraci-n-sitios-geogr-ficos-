@@ -1,0 +1,10 @@
+<p class="notice"><%= notice %></p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @categoria.nombre %>
+</p>
+
+
+<%= button_to 'Modificar', edit_categoria_path(@categoria), :method => :get %>
+<%= button_to 'Atrás', categorias_path, :method => :get %>

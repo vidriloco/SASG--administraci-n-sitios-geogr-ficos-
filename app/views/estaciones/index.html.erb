@@ -1,0 +1,36 @@
+<h1>Listado de estaciones</h1>
+
+<table>
+  <tr>
+    <th>Pos</th>
+    <th>Nombre</th>
+    <th>Coordenada</th>
+    <th>Delegación</th>
+    <th>Correspondencia</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @estaciones.each do |estacion| %>
+  <tr>
+    <td><%= estacion.posicion %></td>
+    <td><%= estacion.nombre %></td>
+    <td><%= estacion.coordenada_to_s %></td>
+    <td><%= estacion.delegacion %></td>
+    <td><%= estacion.correspondencia.nil? ? "" : estacion.correspondencia.clave  %></td>
+    <td><%= button_to 'Muestra', estacion, :method => :get %></td>
+    <td><%= button_to 'Modifica', edit_estacion_path(estacion), :method => :get %></td>
+    <td><%= button_to 'Elimina', estacion, :confirm => '¿Seguro de querer eliminar éste registro?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= button_to 'Nueva Estación', new_estacion_path, :method => :get %>
+<br/>
+<div>
+  <%= button_to 'Nueva Correspondencia', new_correspondencia_path, :method => :get %>
+  <%= button_to 'Nueva Colonia', new_colonia_path, :method => :get %>
+</div>

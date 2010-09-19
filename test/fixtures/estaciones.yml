@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  nombre: MyString
+  coordenada: 
+  delegacion: MyString
+
+two:
+  nombre: MyString
+  coordenada: 
+  delegacion: MyString

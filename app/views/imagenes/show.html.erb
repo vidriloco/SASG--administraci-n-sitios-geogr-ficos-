@@ -1,0 +1,30 @@
+<p class="notice"><%= notice %></p>
+
+<p>
+  <b>Imagen:</b>
+  <%= @imagen.nombre_de_archivo %>
+</p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @imagen.nombre %>
+</p>
+
+<p>
+  <b>Mime:</b>
+  <%= @imagen.mime %>
+</p>
+
+<p>
+  <b>Descripcion:</b>
+  <%= @imagen.descripcion %>
+</p>
+
+<p>
+  <b>Sitio:</b>
+  <%= @imagen.sitio.nombre unless @imagen.sitio.nil? %>
+</p>
+
+
+<%= button_to 'Modificar', edit_imagen_path(@imagen), :method => :get %> |
+<%= button_to 'Atrás', imagenes_path, :method => :get %>

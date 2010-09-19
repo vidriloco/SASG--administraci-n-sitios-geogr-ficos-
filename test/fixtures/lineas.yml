@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  nombre: MyString
+  transporte_id: 1
+  identificador: MyString
+
+two:
+  nombre: MyString
+  transporte_id: 1
+  identificador: MyString

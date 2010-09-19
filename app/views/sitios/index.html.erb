@@ -1,0 +1,38 @@
+<h1>Listando sitios</h1>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Coordenada</th>
+    <th>Descripcion</th>
+    <th>Direccion</th>
+    <th>Telefono</th>
+    <th>Sitioweb</th>
+    <th>Correo</th>
+    <th>Lucrativo</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sitios.each do |sitio| %>
+  <tr>
+    <td><%= sitio.nombre %></td>
+    <td><%= sitio.coordenada_to_s %></td>
+    <td><%= sitio.descripcion %></td>
+    <td><%= sitio.direccion %></td>
+    <td><%= sitio.telefono %></td>
+    <td><%= sitio.sitioweb %></td>
+    <td><%= sitio.correo %></td>
+    <td><%= sitio.lucrativo %></td>
+    <td><%= button_to 'Mostrar', sitio, :method => :get %></td>
+    <td><%= button_to 'Modificar', edit_sitio_path(sitio), :method => :get %></td>
+    <td><%= button_to 'Eliminar', sitio, :confirm => '¿Estás seguro de querer eliminar éste sitio?', 
+																				 :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= button_to 'Nuevo Sitio', new_sitio_path, :method => :get %>

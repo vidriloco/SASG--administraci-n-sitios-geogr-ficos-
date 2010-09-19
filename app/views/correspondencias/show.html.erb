@@ -1,0 +1,10 @@
+<p class="notice"><%= notice %></p>
+
+<p>
+  <b>Clave:</b>
+  <%= @correspondencia.clave %>
+</p>
+
+
+<%= button_to 'Modificar', edit_correspondencia_path(@correspondencia), :method => :get %> |
+<%= button_to 'Atrás', correspondencias_path, :method => :get %>

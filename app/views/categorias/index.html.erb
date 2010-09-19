@@ -1,0 +1,24 @@
+<h1>Listando categorias</h1>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @categorias.each do |categoria| %>
+  <tr>
+    <td><%= categoria.nombre %></td>
+    <td><%= button_to 'Mostrar', categoria, :method => :get %></td>
+    <td><%= button_to 'Modificar', edit_categoria_path(categoria), :method => :get %></td>
+    <td><%= button_to 'Eliminar', categoria, :confirm => '¿Estás seguro de querer eliminar ésta categoría?', 
+																						 :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= button_to 'Nueva Categoria', new_categoria_path, :method => :get %>

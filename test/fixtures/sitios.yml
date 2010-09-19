@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  nombre: MyString
+  clasificacion_id: 1
+  descripcion: MyText
+  direccion: MyString
+  telefono: 1
+  sitioweb: MyString
+  correo: MyString
+  lucrativo: false
+
+two:
+  nombre: MyString
+  clasificacion_id: 1
+  descripcion: MyText
+  direccion: MyString
+  telefono: 1
+  sitioweb: MyString
+  correo: MyString
+  lucrativo: false

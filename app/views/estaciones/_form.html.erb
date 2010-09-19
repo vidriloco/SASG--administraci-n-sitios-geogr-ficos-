@@ -1,0 +1,56 @@
+<%= form_for(@estacion) do |f| %>
+  <% if @estacion.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@estacion.errors.count, "error") %> impidieron guardar ésta estación:</h2>
+    <ul>
+    <% @estacion.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label 'Linea' %><br />
+    <% s = @estacion.linea.nil? ? 0 : @estacion.linea.id %>
+    <%= f.select :linea_id,"<option></option>"+option_groups_from_collection_for_select(@transportes, :lineas,:nombre,:id,:nombre,s) %>
+  </div>
+  
+  <div class="field">
+    <%= f.label 'Colonias' %><br />
+  <%= collection_select :estacion, :colonias, @colonias, :id, :nombre, { :selected => @estacion.colonias.map { |c| c.id } }, { :multiple => true, :name => 'estacion[colonias][]' } -%>
+  </div>
+  
+  <div class="field">
+    <%= f.label 'posicion', "Posición" %>
+    <!--<%= f.select :posicion, (1..50).to_a %>-->
+    <%= f.text_field :posicion %>
+  </div>
+  
+  <div class="field">
+    <%= f.label 'correspondencia' %><br />
+    <% s = @estacion.correspondencia.nil? ? 0 : @estacion.correspondencia.id %>
+    <%= f.select :correspondencia_id, "<option></option>" + options_from_collection_for_select(@correspondencias, :id,:clave, s) %>
+  </div>
+  <div class="field">
+    <%= f.label 'coordenada', 'Coordenada (Latitud [19] - Longitud [-99])' %><br />
+    <%  coordenada = @estacion.coordenada.nil?  ? '' : @estacion.coordenada %>
+    <%= text_field_tag 'estacion[coordenada][lat]',  coordenada.is_a?(Point)  ? @estacion.coordenada.lat : @estacion.coordenada["lat"] %>
+		<%= text_field_tag 'estacion[coordenada][lon]',  coordenada.is_a?(Point)  ? @estacion.coordenada.lon : @estacion.coordenada["lon"] %>
+  </div>
+  <div class="field">
+    <%= f.label :delegacion %><br />
+    <%= f.select :delegacion, @delegaciones, { :selected => @estacion.delegacion}, {:include_blank => true} %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit("Guarda Estación") %>
+  </div>
+  <br/>
+  <br/>
+  
+<% end %>

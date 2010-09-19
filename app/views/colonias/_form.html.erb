@@ -1,0 +1,20 @@
+<%= form_for(@colonia) do |f| %>
+  <% if @colonia.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@colonia.errors.count, "error") %> impidieron guardar ésta colonia:</h2>
+    <ul>
+    <% @colonia.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="actions">
+    <%= f.submit("Guarda Colonia") %>
+  </div>
+<% end %>

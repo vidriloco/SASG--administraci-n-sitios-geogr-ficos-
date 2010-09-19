@@ -1,0 +1,10 @@
+<p class="notice"><%= notice %></p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @colonia.nombre %>
+</p>
+
+
+<%= button_to 'Modificar', edit_colonia_path(@colonia), :method => :get %> |
+<%= button_to 'Atrás', colonias_path, :method => :get %>

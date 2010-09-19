@@ -1,0 +1,20 @@
+<%= form_for(@transporte) do |f| %>
+  <% if @transporte.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@transporte.errors.count, "error") %> prohibited this transporte from being saved:</h2>
+    <ul>
+    <% @transporte.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,34 @@
+<h3>Administración de datos</h3>
+
+
+<div>
+	
+	<% form_tag 'limpia' do -%>
+  	  <table>
+  	       <tr>
+  	           <td><b>Purgar Base de Datos: </b></td>
+  	           <td><%= submit_tag 'Aceptar' -%></td>
+  	       </tr>
+  	  </table>
+  <% end -%>	
+
+  <% form_tag 'salida' do -%>
+      <table>
+          <tr>
+              <td><b>Copia de Seguridad: </b></td>
+              <td><%= submit_tag 'Descargar' -%></td>
+          </tr>
+      </table>
+  <% end -%>
+
+<% form_tag 'entrada',
+              :multipart => true  do -%>
+    <table>
+        <tr>
+            <td><b>Restaurar Copia de seguridad: </b></td>   
+       
+            <td><%= file_field_tag "zipo" -%></td>
+            <td><%= submit_tag 'Cargar', :onclick => "return validarArchivo('input #zipo');" -%></td>
+        </tr>
+    </table>
+<% end %>

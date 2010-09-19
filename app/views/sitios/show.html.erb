@@ -1,0 +1,45 @@
+<p class="notice"><%= notice %></p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @sitio.nombre %>
+</p>
+
+<p>
+  <b>Coordenada:</b>
+  <%= @sitio.coordenada_to_s %>
+</p>
+
+<p>
+  <b>Descripcion:</b>
+  <%= @sitio.descripcion %>
+</p>
+
+<p>
+  <b>Direccion:</b>
+  <%= @sitio.direccion %>
+</p>
+
+<p>
+  <b>Telefono:</b>
+  <%= @sitio.telefono %>
+</p>
+
+<p>
+  <b>Sitioweb:</b>
+  <%= @sitio.sitioweb %>
+</p>
+
+<p>
+  <b>Correo:</b>
+  <%= @sitio.correo %>
+</p>
+
+<p>
+  <b>Lucrativo:</b>
+  <%= @sitio.lucrativo %>
+</p>
+
+
+<%= button_to 'Modificar', edit_sitio_path(@sitio), :method => :get %>
+<%= button_to 'Atrás', sitios_path, :method => :get %>

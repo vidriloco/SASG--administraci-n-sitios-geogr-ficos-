@@ -1,0 +1,27 @@
+<h1>Listado de Lineas</h1>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Transporte</th>
+    <th>Identificador</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @lineas.each do |linea| %>
+  <tr>
+    <td><%= linea.nombre %></td>
+    <td><%= linea.transporte_id %></td>
+    <td><%= linea.identificador %></td>
+    <td><%= button_to 'Mostrar', linea, :method => :get %></td>
+    <td><%= button_to 'Modificar', edit_linea_path(linea), :method => :get %></td>
+    <td><%= button_to 'Eliminar', linea, :confirm => '¿Estás seguro?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= button_to 'Nueva Línea', new_linea_path, :method => :get %>

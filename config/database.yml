@@ -2,7 +2,7 @@
 #   gem install sqlite3-ruby (not necessary on OS X Leopard)
 development:
   adapter: postgresql
-  database: SITserver_development
+  database: SITServer_development
   username: postgres
   password: postgres
   pool: 5
@@ -11,18 +11,34 @@ development:
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-test:
+
+test_base: &test_base
   adapter: postgresql
-  database: SITserver_test
-  username: postgres
-  password: postgres
+  database: SITServer_test
   pool: 5
   timeout: 5000
 
-production:
-  adapter: postgresql
-  database: SITserver_production
+test: &test
+  <<: *test_base
   username: postgres
   password: postgres
+
+
+test-remote:
+  <<: *test_base
+  username: spalatijn
+  password: spalatijn
+
+production:
+  adapter: postgresql
+  database: SITServer_production
+  username: spalatijn
+  password: spalatijn
   pool: 5
   timeout: 5000
+
+cucumber:
+  <<: *test
+
+cucumber-remote:
+  <<: *test-remote

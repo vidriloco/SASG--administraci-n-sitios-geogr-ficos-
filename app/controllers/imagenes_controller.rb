@@ -18,7 +18,7 @@ class ImagenesController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @imagen }
-      format.imagen { send_file @imagen.ruta_al_archivo, :type => @imagen.mime, :disposition => 'inline' }
+      format.imagen { send_data(File.open(@imagen.ruta_al_archivo, 'r').read, :filename => "imagen.png") }
     end
   end
 

@@ -17,7 +17,7 @@ class Sitio < ActiveRecord::Base
   
   def coordenada_a_punto
     unless self.coordenada.instance_of? Point
-      self.coordenada = Point.from_lon_lat(self.coordenada[:lon], self.coordenada[:lat], 4326)
+      self.coordenada = Point.from_lon_lat(self.coordenada[:lon].to_f, self.coordenada[:lat].to_f, 4326)
     end
   end
   

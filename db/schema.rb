@@ -11,23 +11,6 @@
 
 ActiveRecord::Schema.define(:version => 20100709024619) do
 
-  create_table "ESTACION", :id => false, :force => true do |t|
-    t.integer "ID",                        :null => false
-    t.point   "COORDENADA", :limit => nil
-    t.string  "DELEGACION", :limit => 256
-    t.string  "ID_NOMBRE",  :limit => 256
-    t.string  "NOMBRE",     :limit => 256
-  end
-
-  create_table "ESTACIONES", :id => false, :force => true do |t|
-    t.integer "ESTACIONES_ID", :limit => 8,   :null => false
-    t.point   "COORDENADA",    :limit => nil,                 :srid => 4326
-    t.string  "DELEGACION",    :limit => 256
-    t.string  "ID_NOMBRE",     :limit => 256
-    t.string  "NOMBRE",        :limit => 256
-    t.integer "ID"
-  end
-
   create_table "categorias", :force => true do |t|
     t.string   "nombre"
     t.datetime "created_at"
